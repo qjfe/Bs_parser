@@ -1,8 +1,13 @@
 import mechanize
 from bs4 import BeautifulSoup
 
-def parser():
-	br = mechanize.Browser()
-	resp. = br.submit():
-	search_url = "http://www.destroyshop.ru/deck/catalogue.html"
-	html = resp.read()
+
+search_url = "http://www.avito.ru/moskva/noutbuki"
+
+br = mechanize.Browser()
+resp = br.open(search_url)
+#br.select_form(search="submit")
+
+#resp = br.submit()
+html = resp.read()
+html = open("otchet.txt", "w,r")
