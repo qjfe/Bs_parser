@@ -18,6 +18,6 @@ html = resp.read()
 
 print html
 
-save = open('otchet.txt', 'wb+')
-save.write('String')
+save = open('otchet.txt', 'w+')
+save.write(str(html))
 save.close()
