@@ -1,22 +1,21 @@
+#-*-coding:utf-8-*-
 import sys, os
 import mechanize
 from bs4 import BeautifulSoup
 import requests
 
 
-
-search_url = "http://www.destroyshop.ru/deck/catalogue.html"
-
 br = mechanize.Browser()
-resp = br.open(search_url)
-
-
-#br.select_form(search="submit")
-
-#resp = br.submit()
+resp = br.open("http://www.destroyshop.ru/deck/catalogue.html")
 html = resp.read()
 
-print html
+#soup.findAll('div',{'itemprop':"name"})
+
+soupn = BeautifulSoup(html)
+desc = soupn.findAll(attrs={"class":"vi"})
+desc = [0]
+
+#print html
 
 save = open('otchet.txt', 'w+')
 save.write(str(html))
