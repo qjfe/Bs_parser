@@ -2,21 +2,24 @@
 import sys, os
 import mechanize
 from bs4 import BeautifulSoup
-import requests
 
+#soupn = BeautifulSoup(html)
+#desc = soupn.findAll("a", { "class" : "name" })
 
 br = mechanize.Browser()
+br.set_handle_robots(False)
 resp = br.open("http://www.destroyshop.ru/deck/catalogue.html")
 html = resp.read()
 
-#soup.findAll('div',{'itemprop':"name"})
-
 soupn = BeautifulSoup(html)
-desc = soupn.findAll(attrs={"class":"vi"})
-desc = [0]
 
-#print html
+
+name = soupn.findAll("div", { "class" : "name" })
+price = soupn.findAll("span", { "class" : "price" })
+
+print_zn = (name, price)
+
 
 save = open('otchet.txt', 'w+')
-save.write(str(html))
+save.write(str(print_zn))
 save.close()
