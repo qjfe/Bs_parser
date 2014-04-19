@@ -3,19 +3,16 @@ import sys, os
 import mechanize
 from bs4 import BeautifulSoup
 
-#soupn = BeautifulSoup(html)
-#desc = soupn.findAll("a", { "class" : "name" })
-
 br = mechanize.Browser()
 br.set_handle_robots(False)
-resp = br.open("http://www.destroyshop.ru/deck/catalogue.html")
+resp = br.open("http://shop.skvot.com/catalog/summer/skateboarding/?SHOWALL_1=1")
 html = resp.read()
 
 soupn = BeautifulSoup(html)
 
 
-name = soupn.findAll("div", { "class" : "name" })
-price = soupn.findAll("span", { "class" : "price" })
+name = soupn.findAll("div", { "class" : "daydeal-title" })
+price = soupn.findAll("div", { "class" : "price" })
 
 print_zn = (name, price)
 
